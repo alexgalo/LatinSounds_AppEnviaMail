@@ -1,0 +1,21 @@
+<html>
+<head> <title>Enviar Cancion</title></head>
+  <body>
+    {% if info_enviado%}
+     Gracias por enviar una cancion <br>
+     Añadiremos tu canción breve <br>
+      <br>
+      <br>
+     <p> Añadiremos la siguiente cancion: {{titulo}} </p>
+     <p> Del autor: {{autor}} </p>
+     <br> <br>
+     <p> <h3>Saludos desde Latin Sounds</h3></p>
+    {% else %}
+      <form method='POST' action=''>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value= 'Enviar'>
+      </form>
+    {% endif %}
+</body>
+</html>
